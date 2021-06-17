@@ -73,13 +73,13 @@
 																	<script>
 
 $("#enc").click(function(){
-  $.ajax({url: "http://85.215.228.174/api/Encrypt/?me="+ $("#publickey").val(), success: function(result){
+  $.ajax({url: "https://85.215.228.174/api/Encrypt/?me="+ $("#publickey").val(), success: function(result){
     $("#result").html(result);
   }});
 });
 
 $("#dec").click(function(){
-  $.ajax({url: "http://85.215.228.174/api/Decrypt/?me="+ $("#publickey").val(), success: function(result){
+  $.ajax({url: "https://85.215.228.174/api/Decrypt/?me="+ $("#publickey").val(), success: function(result){
     $("#result").html(result);
   }});
 });
@@ -91,7 +91,7 @@ $("#encd").click(function(){
 });
 
 $("#decd").click(function(){
-  $.ajax({url: "ocalhost:44396/api/Decrypt/?me="+ $("#publickey").val(), success: function(result){
+  $.ajax({url: "localhost:44396/api/Decrypt/?me="+ $("#publickey").val(), success: function(result){
     $("#result").html(result);
   }});
 });
