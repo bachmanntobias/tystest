@@ -1,0 +1,122 @@
+<!doctype html>
+	<html lang="en">
+		<head>
+			<meta charset="utf-8">
+				<meta name="viewport"
+    					content="width=device-width, initial-scale=1, shrink-to-fit=no">
+					<meta name="description"
+    						content="">
+						<meta name="author"
+    							content="">
+							<!-- <link rel="icon"
+    								href="favicon.ico"> -->
+								<title>TYS testme</title>
+								<link rel="canonical"
+    									href="#">
+									<link href="bootstrap.min.css"
+    										rel="stylesheet">
+										</head>
+										<body>
+											<header>
+												<div class="navbar navbar-dark bg-dark box-shadow">
+													<div class="container d-flex justify-content-between">
+														<a href="#"
+ 															class="navbar-brand d-flex align-items-center">
+															<strong>TYS</strong>
+														</a>
+													</div>
+												</div>
+											</header>
+											<main role="main">
+												<br/>
+												<div>
+												
+												<br/>
+												</div>
+												<div class="container">	
+												<div class="row">
+													<div class="col-sm">
+														<h1 id="result"></h1>
+													</div>
+												</div>
+													  <div class="row">
+														<div class="col-sm">
+															<label for="publickey">Please insert your Public Key</label>
+														</div>
+														<div class="col-sm">
+															<input type="text" required name="publickey" id="publickey">
+														</div>																								
+													  </div>
+													  <div class="row">
+														<div class="col-sm">
+													  		<button id="enc" class="btn btn-primary">Encrypt</button>
+													  	</div>
+														  <div class="col-sm">
+															<button id="dec" class="btn btn-primary">decrypt</button>
+														</div>
+														<div class="col-sm">
+															<button id="encd" class="btn btn-danger">EncryptDEBUG</button>
+														</div>
+														<div class="col-sm">
+														  <button id="decd" class="btn btn-danger">decryptDEBUG</button>
+													  </div>
+													  </div>
+												</div>
+											</main>
+													<footer class="text-muted">
+														<div class="container">
+														<div class="row">
+														</div>
+														</div>
+																	</footer>
+																	<script src="jquery.js"></script>
+																	<script>
+
+$("#enc").click(function(){
+  $.ajax({url: "http://85.215.228.174/api/Encrypt/?me="+ $("#publickey").val(), success: function(result){
+    $("#result").html(result);
+  }});
+});
+
+$("#dec").click(function(){
+  $.ajax({url: "http://85.215.228.174/api/Decrypt/?me="+ $("#publickey").val(), success: function(result){
+    $("#result").html(result);
+  }});
+});
+
+$("#encd").click(function(){
+  $.ajax({url: "localhost:44396/api/Encrypt/?me="+ $("#publickey").val(), success: function(result){
+    $("#result").html(result);
+  }});
+});
+
+$("#decd").click(function(){
+  $.ajax({url: "ocalhost:44396/api/Decrypt/?me="+ $("#publickey").val(), success: function(result){
+    $("#result").html(result);
+  }});
+});
+
+
+																		$("#valuate").click(function(){
+																			$("#result").text("Your emcrypted key is "+ $("#publickey").value().hashCode()+ "!");
+																		});
+
+																		function val() {
+
+																			$("#publickey").value().hashCode()
+																		
+																	
+																		}
+
+																		function CND(x){
+																		if(x < 0) {
+																			return ( 1-CND(-x) );
+																		} else {
+																			k = 1 / (1 + .2316419 * x);
+																			return ( 1 - Math.exp(-x * x / 2)/ Math.sqrt(2*Math.PI) * k * (.31938153 + k * (-.356563782 + k * (1.781477937 + k * (-1.821255978 + k * 1.330274429)))) );
+																		}
+																		}
+																	</script>
+																		</body>
+																	</html>
+																	
